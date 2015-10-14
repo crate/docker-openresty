@@ -2,25 +2,26 @@
 OpenResty Dockerfile
 ====================
 
-Base Docker Image
-=================
-
-`ubuntu:latest`_
-
 Current Version
 ===============
 
 Openresty_ ``1.9.3.1``
 
+Base Docker Image
+=================
+
+`ubuntu:latest`_
+
 Installation
 ============
 
 1. Install Docker_
+
 2. Download latest build from `Docker Hub Registry`_::
 
   docker pull crate/openresty:latest
 
-Alternatively you can build an image from ``Dockerfile``::
+3. Alternatively you can build an image from ``Dockerfile``::
 
   export VERSION=1.9.3.1
   docker build --rm --force-rm --tag crate/openresty:${VERSION} .
@@ -28,7 +29,7 @@ Alternatively you can build an image from ``Dockerfile``::
 Run Openresty
 =============
 
-::
+Example with full set of arguments::
 
   docker run \
     -p 80:80 \
@@ -52,6 +53,8 @@ There are 3 volumes to mount: ``/conf``, ``/data``, and ``/logs``.
 Configuration
 --------------
 
+`Nginx Documentation`_
+
 If you want to include package files such as ``mime.type`` or ``fastcgi_params``,
 you can find them located in ``/usr/local/openresty/nginx/conf/``.
 
@@ -68,4 +71,5 @@ You can include them in your ``nginx.conf`` like::
 .. _Docker Hub Registry: https://registry.hub.docker.com
 .. _Openresty: http://openresty.org/
 .. _`ubuntu:latest`: https://hub.docker.com/_/ubuntu/
+.. _Nginx Documentation: http://nginx.org/en/docs/
 
